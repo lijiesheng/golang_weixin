@@ -28,3 +28,10 @@ func TestGetweather(t *testing.T) {
 
 	fmt.Printf("%+v\n", weather)
 }
+
+func TestGetweather1(t *testing.T) {
+	weatherMap := map[string]bool{}
+	b := weatherMap["2022-02-10"]
+	fmt.Println(b)
+
+}

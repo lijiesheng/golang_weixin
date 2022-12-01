@@ -9,6 +9,9 @@ import (
 
 var mapCityFriend = map[string][]*openwechat.Friend{}
 
+var isSend = false
+var weatherMap = map[string]bool{}
+
 func main() {
 	bot := openwechat.DefaultBot(openwechat.Desktop) // 桌面模式，上面登录不上的可以尝试切换这种模式
 
@@ -54,8 +57,10 @@ func main() {
 	//friends_wuhan := []*openwechat.Friend{}
 	//mapCityFriend["武汉"] = append(friends_wuhan, hubingbing)
 
-	go SendMessageToFriend(mapCityFriend)
-	time.Sleep(30 * time.Second)
+	for {
+		go SendMessageToFriend(mapCityFriend)
+		time.Sleep(60 * time.Second)
+	}
 
 	//lib.SendTextToFried("asdfeiaufgadiufbviadd厉害哦dsa", wangTianErLiJieSheng)
 	//lib.SendTextToFried("asdfeiaufgadiufbviadd厉害哦dsa", dogRuningLijiesheng)
@@ -113,6 +118,7 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 	hour := now.Hour()
 	minute := now.Minute()
 	minute = minute
+	today := now.Format("2006-01-02")
 	var text string
 	//var url string
 	switch hour {
@@ -122,17 +128,21 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 
 	// 9点、推送天气
 	case 9:
-		// 推送天气消息
-		text = fmt.Sprintf("城市: %s \n"+
-			"日期: %s %s\n"+
-			"天气: %s %s %s\n"+
-			"最高温度:%s\n"+
-			"最低温度:%s\n"+
-			"当前温度:%s\n",
-			weather.City, weather.Date, weather.Week, weather.Wea, weather.Win, weather.WinSpeed, weather.MaxTem, weather.MinTem, weather.CurrTem)
-		fmt.Printf("%+v\n", weather)
-		fmt.Println(text)
-		gf.SendText(text)
+		b := weatherMap[today]
+		if !b {
+			weatherMap[today] = true
+			// 推送天气消息
+			text = fmt.Sprintf("城市: %s \n"+
+				"日期: %s %s\n"+
+				"天气: %s %s %s\n"+
+				"最高温度:%s\n"+
+				"最低温度:%s\n"+
+				"当前温度:%s\n",
+				weather.City, weather.Date, weather.Week, weather.Wea, weather.Win, weather.WinSpeed, weather.MaxTem, weather.MinTem, weather.CurrTem)
+			fmt.Printf("%+v\n", weather)
+			fmt.Println(text)
+			gf.SendText(text)
+		}
 
 		//url = fmt.Sprintf("./image/%d.png", util.GenerateRandnum(6))
 		//fmt.Println("url==>", url)
