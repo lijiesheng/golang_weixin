@@ -127,8 +127,9 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 		//gf.SendText(messagesMorning[util.GenerateRandnum(24)])
 
 	// 9点、推送天气
-	case 9:
+	case 9, 10:
 		b := weatherMap[today]
+		fmt.Println(today)
 		if !b {
 			weatherMap[today] = true
 			// 推送天气消息
@@ -155,7 +156,6 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 		//gf.SendImage(open)
 
 		// 推送湖北疫情
-	case 8:
 
 		// 推送湖北高风险地区
 	//case 9:
