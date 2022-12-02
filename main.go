@@ -93,7 +93,7 @@ func SendMessageToFriend(mapCityFriend map[string][]*openwechat.Friend) {
 		weather := pkg.Getweather(key)
 		for _, friend := range values {
 			sendMessageToFriend(weather, friend)
-			fmt.Println("发送成功")
+			log.Println("发送成功")
 		}
 	}
 }
