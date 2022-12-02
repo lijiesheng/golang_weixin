@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/eatmoreapple/openwechat"
 	"golang_wechat/pkg"
+	"log"
+	"os"
 	"time"
 )
 
@@ -13,6 +15,17 @@ var isSend = false
 var weatherMap = map[string]bool{}
 
 func main() {
+	// 日志
+	logFile, err := os.OpenFile("./golang_wechat.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		fmt.Println("open log file failed, err: ", err)
+		return
+	}
+	log.SetOutput(logFile)
+	log.SetFlags(log.Llongfile | log.Lmicroseconds | log.Ldate)
+	log.SetPrefix("[golang_wechat] ")
+
+	// 微信登录
 	bot := openwechat.DefaultBot(openwechat.Desktop) // 桌面模式，上面登录不上的可以尝试切换这种模式
 
 	// 注册消息处理函数
@@ -130,6 +143,7 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 	case 9, 10:
 		b := weatherMap[today]
 		fmt.Println(today)
+		log.Println(now.Format("2006-01-02 15:04:05"))
 		if !b {
 			weatherMap[today] = true
 			// 推送天气消息
