@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/eatmoreapple/openwechat"
+	dao "golang_wechat/dao/mysql"
 	"golang_wechat/pkg"
 	"log"
 	"os"
@@ -65,13 +66,16 @@ func main() {
 	fmt.Println(dogRuningLijiesheng)
 
 	friends_beijing := []*openwechat.Friend{}
-	mapCityFriend["北京"] = append(friends_beijing, wangTianErLiJieSheng, dogRuningLijiesheng)
+	friends_wuhan := []*openwechat.Friend{}
 
+	mapCityFriend["北京"] = append(friends_beijing, wangTianErLiJieSheng, dogRuningLijiesheng)
+	mapCityFriend["武汉"] = append(friends_wuhan, hubingbing)
 	//friends_wuhan := []*openwechat.Friend{}
 	//mapCityFriend["武汉"] = append(friends_wuhan, hubingbing)
 
 	for {
-		go SendMessageToFriend(mapCityFriend)
+		//go SendMessageToFriend(mapCityFriend)
+		SendMessageToFriend(mapCityFriend)
 		time.Sleep(60 * time.Second)
 	}
 
@@ -92,14 +96,14 @@ func SendMessageToFriend(mapCityFriend map[string][]*openwechat.Friend) {
 	for key, values := range mapCityFriend {
 		weather := pkg.Getweather(key)
 		for _, friend := range values {
-			sendMessageToFriend(weather, friend)
+			sendMessageToFriend(weather, "黄诗美", friend)
 			log.Println("发送成功")
 		}
 	}
 }
 
 // 单个人发送消息
-func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
+func sendMessageToFriend(weather *pkg.ResWeather, nickNameFrom string, gf *openwechat.Friend) {
 	//messagesMorning := []string{
 	//	"我放弃，不是因为我输了，而是因为我懂了。早安",
 	//	"自信的女人，不一定会是漂亮的，比如说凤姐；可爱的女人不一定不雷人，比如说小月月；但是关心你的人，那一定会是我，于每日都问候，早安",
@@ -139,13 +143,17 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 	case 6:
 		//gf.SendText(messagesMorning[util.GenerateRandnum(24)])
 
-	// 9点、推送天气
-	case 9, 10:
-		b := weatherMap[today]
-		fmt.Println(today)
-		log.Println(now.Format("2006-01-02 15:04:05"))
-		if !b {
-			weatherMap[today] = true
+	// 9点推送天气
+	case 9:
+		sql := "select count(*) count from wechat_message where data = ? and type = ? and send_nick = ? and recieve_nick = ?"
+		var count int
+		err := dao.Db.Get(&count, sql, today, 9, nickNameFrom, gf.NickName)
+		if err != nil {
+			fmt.Printf("get failed, err:%v\n", err)
+			return
+		}
+
+		if count == 0 {
 			// 推送天气消息
 			text = fmt.Sprintf("城市: %s \n"+
 				"日期: %s %s\n"+
@@ -157,6 +165,16 @@ func sendMessageToFriend(weather *pkg.ResWeather, gf *openwechat.Friend) {
 			fmt.Printf("%+v\n", weather)
 			fmt.Println(text)
 			gf.SendText(text)
+
+			// 插入到数据库中
+			insertSql := `insert into wechat_message(send_nick, recieve_nick, data, type, content) values (?,?,?,?,?)`
+			ret, err := dao.Db.Exec(insertSql, nickNameFrom, gf.NickName, today, 9, text)
+			theID, err := ret.LastInsertId() // 新插入数据的id
+			if err != nil {
+				fmt.Printf("get lastinsert ID failed, err:%v\n", err)
+				return
+			}
+			log.Printf("insert success, the id is %d.\n", theID)
 		}
 
 		//url = fmt.Sprintf("./image/%d.png", util.GenerateRandnum(6))

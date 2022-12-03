@@ -2,3 +2,48 @@ golang_wechat2022/12/02 21:32:31.919864 /Users/doghuang/go/pkg/mod/github.com/ea
 golang_wechat2022/12/02 21:32:45.450569 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:409: 登录成功
 golang_wechat2022/12/02 21:32:45.767818 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
 golang_wechat2022/12/02 21:32:49.986770 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 22:48:09.400855 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:405: 扫码成功,请在手机上确认登录
+[golang_wechat] 2022/12/03 22:48:25.259865 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:409: 登录成功
+[golang_wechat] 2022/12/03 22:48:25.604331 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 22:51:23.415534 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 22:51:29.097472 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:97: 发送成功
+[golang_wechat] 2022/12/03 23:55:49.545765 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:405: 扫码成功,请在手机上确认登录
+[golang_wechat] 2022/12/03 23:56:00.195283 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:409: 登录成功
+[golang_wechat] 2022/12/03 23:56:00.630749 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:02.918710 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:97: 发送成功
+[golang_wechat] 2022/12/03 23:56:02.927476 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:97: 发送成功
+[golang_wechat] 2022/12/03 23:56:03.159157 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:04.834413 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:08.634475 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:10.795383 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:11.425900 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:17.234612 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:20.098679 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:38.443381 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:41.962241 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:43.206948 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:45.875553 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:48.454989 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:54.428641 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:56:57.488608 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:57:02.796298 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:97: 发送成功
+[golang_wechat] 2022/12/03 23:57:02.845655 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:97: 发送成功
+[golang_wechat] 2022/12/03 23:57:03.015447 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:57:06.614454 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:57:07.692999 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:57:17.554409 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:57:47.209653 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:405: 扫码成功,请在手机上确认登录
+[golang_wechat] 2022/12/03 23:57:58.754760 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:409: 登录成功
+[golang_wechat] 2022/12/03 23:57:58.974234 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:58:24.626127 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:405: 扫码成功,请在手机上确认登录
+[golang_wechat] 2022/12/03 23:58:34.503690 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:409: 登录成功
+[golang_wechat] 2022/12/03 23:58:34.741185 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:58:37.336533 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:58:37.536787 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:175: insert success, the id is 1.
+[golang_wechat] 2022/12/03 23:58:37.536917 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:98: 发送成功
+[golang_wechat] 2022/12/03 23:58:37.877638 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:175: insert success, the id is 2.
+[golang_wechat] 2022/12/03 23:58:37.877746 /Users/doghuang/GolandProjects/awesomeProject/github/golang_wechat/main.go:98: 发送成功
+[golang_wechat] 2022/12/03 23:58:39.367882 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:58:49.634208 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:58:57.013185 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:414: RetCode:0  Selector:2
+[golang_wechat] 2022/12/03 23:59:38.988389 /Users/doghuang/go/pkg/mod/github.com/eatmoreapple/openwechat@v1.2.1/bot.go:405: 扫码成功,请在手机上确认登录
