@@ -3,7 +3,9 @@ package pkg
 import (
 	"encoding/json"
 	"fmt"
+	dao "golang_wechat/dao/mysql"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -110,7 +112,7 @@ type ResWeather struct {
 	Alarm    *Alarm `json:"alarm"`
 }
 
-// 根据城市名获取天气
+// 根据城市名获取天气 这个是付费的，只能使用 2000 次
 func Getweather(cityName string) *ResWeather {
 	url := fmt.Sprintf("https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=94853111&appsecret=5x1bFpJg&city=%s", cityName)
 	resp, err := http.Get(url)
@@ -145,3 +147,68 @@ func Getweather(cityName string) *ResWeather {
 		Alarm:    &weather.Alarm,
 	}
 }
+
+// ———————————————————————————————第二版开始—————————————————————————————————//
+// https://www.yiketianqi.com/free/day?appid=94853111&appsecret=5x1bFpJg&unescape=1&cityid=CN101010800
+
+/*
+	测试豆：2000个
+	appid：94853111
+	appsecret：5x1bFpJg
+*/
+
+type ResWeather1 struct {
+	Nums       int    `json:"nums"`
+	Cityid     string `json:"cityid"`
+	City       string `json:"city"`
+	Date       string `json:"date"`
+	Week       string `json:"week"`
+	UpdateTime string `json:"update_time"`
+	Wea        string `json:"wea"`
+	WeaImg     string `json:"wea_img"`
+	Tem        string `json:"tem"`
+	TemDay     string `json:"tem_day"`
+	TemNight   string `json:"tem_night"`
+	Win        string `json:"win"`
+	WinSpeed   string `json:"win_speed"`
+	WinMeter   string `json:"win_meter"`
+	Air        string `json:"air"`
+	Pressure   string `json:"pressure"`
+	Humidity   string `json:"humidity"`
+}
+
+func Getweather1(cityName string) *ResWeather1 {
+	// 1、根据城市名查询code
+	sql := `select id from city where cityZh = ?`
+	var id string
+	err := dao.Db.Get(&id, sql, cityName)
+	if err != nil {
+		fmt.Println("查询不出城市名称: ", err)
+		log.Println("查询不出城市名称: ", err)
+		return nil
+	}
+
+	// 2、获取天气
+	url := fmt.Sprintf("https://www.yiketianqi.com/free/day?appid=94853111&appsecret=5x1bFpJg&unescape=1&cityid=%s", id)
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println("获取天气失败,", err)
+		log.Println("获取天气失败,", err)
+		return nil
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("读取内容失败", err)
+		return nil
+	}
+	resWeather1 := &ResWeather1{}
+	err = json.Unmarshal(body, resWeather1)
+	if err != nil {
+		fmt.Println("转换出错")
+		return nil
+	}
+	return resWeather1
+}
+
+// ———————————————————————————————第二版结束—————————————————————————————————//

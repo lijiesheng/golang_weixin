@@ -30,8 +30,6 @@ func TestGetweather(t *testing.T) {
 }
 
 func TestGetweather1(t *testing.T) {
-	weatherMap := map[string]bool{}
-	b := weatherMap["2022-02-10"]
-	fmt.Println(b)
-
+	getweather1 := Getweather1("江夏")
+	fmt.Printf("%+v\n", getweather1)
 }
